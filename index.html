@@ -5,11 +5,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="/src/style.css" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
   <title>amazon</title>
 </head>
 
 <body>
-  <header class="text-4xl text-yellow-500 font-bold bg-neutral-800 p-5 flex justify-center">Amazon</header>
+  <header class=" bg-neutral-900 p-5 flex justify-center items-center">
+    <img src="https://www.nicepng.com/png/full/16-167642_amazon-logo-amazon-logo-white-text.png" alt="Amazon Logo"
+      class="h-10">
+    <div class="relative ml-5 w-1/2">
+      <input type="text" placeholder="Search" class="w-full p-2 bg-neutral-50 rounded-md">
+      <span
+        class="material-symbols-outlined text-neutral-800 cursor-pointer absolute top-0 right-0 bg-yellow-500 rounded-r-md p-2">
+        search
+      </span>
+    </div>
+  </header>
   <div id="products-page"></div>
   <script type="module" src="./pages/products.js"></script>
 </body>
