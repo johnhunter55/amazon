@@ -1,29 +1,52 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/src/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <title>amazon</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="/src/style.css" rel="stylesheet">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
-  <title>amazon</title>
-</head>
+  <body class="bg-neutral-200">
+    <header
+      class="bg-neutral-900 gap-2 pl-2 pt-2 pb-2 pr-0 md:pr-5 md:pt-5 md:pl-5 md:pb-5 flex w-full items-center justify-between"
+    >
+      <div class="w-60 grow flex justify-center">
+        <img
+          class="w-24"
+          src="https://www.nicepng.com/png/full/16-167642_amazon-logo-amazon-logo-white-text.png"
+          alt="Amazon Logo"
+        />
+      </div>
 
-<body>
-  <header class=" bg-neutral-900 p-5 flex justify-center items-center">
-    <img src="https://www.nicepng.com/png/full/16-167642_amazon-logo-amazon-logo-white-text.png" alt="Amazon Logo"
-      class="h-10">
-    <div class="relative ml-5 w-1/2">
-      <input type="text" placeholder="Search" class="w-full p-2 bg-neutral-50 rounded-md">
-      <span
-        class="material-symbols-outlined text-neutral-800 cursor-pointer absolute top-0 right-0 bg-yellow-500 rounded-r-md p-2">
-        search
-      </span>
-    </div>
-  </header>
-  <div id="products-page"></div>
-  <script type="module" src="./pages/products.js"></script>
-</body>
+      <div class="relative w-2xl flex grow-2 max-w-6xl">
+        <input
+          type="text"
+          placeholder="Search"
+          class="p-1 md:p-2 bg-neutral-50 rounded-md w-full"
+        />
+        <span
+          class="material-symbols-outlined text-neutral-800 cursor-pointer absolute top-0 right-0 bg-yellow-500 rounded-r-md p-1 md:p-2"
+        >
+          search
+        </span>
+      </div>
 
+      <div class="w-60 grow flex items-center gap-2 md:gap-5 justify-end">
+        <div>
+          <p class="text-neutral-50 font-bold text-base/5">Returns</p>
+          <p class="text-neutral-50 text-sm/4">& Orders</p>
+        </div>
+        <span class="material-symbols-outlined text-neutral-50 text-3xl! pr-2"
+          >shopping_cart</span
+        >
+      </div>
+    </header>
+    <div id="products-page" class="pl-5 pr-5"></div>
+    <script type="module" src="./pages/products.js"></script>
+  </body>
 </html>
