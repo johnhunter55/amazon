@@ -16,11 +16,13 @@
       class="bg-neutral-900 gap-2 pl-2 pt-2 pb-2 pr-0 md:pr-5 md:pt-5 md:pl-5 md:pb-5 flex w-full items-center justify-between"
     >
       <div class="w-60 grow flex justify-center">
-        <img
-          class="w-24"
-          src="https://www.nicepng.com/png/full/16-167642_amazon-logo-amazon-logo-white-text.png"
-          alt="Amazon Logo"
-        />
+        <a href="index.html">
+          <img
+            class="w-24"
+            src="https://www.nicepng.com/png/full/16-167642_amazon-logo-amazon-logo-white-text.png"
+            alt="Amazon Logo"
+          />
+        </a>
       </div>
 
       <div class="relative w-2xl flex grow-2 max-w-6xl">
@@ -41,9 +43,23 @@
           <p class="text-neutral-50 font-bold text-base/5">Returns</p>
           <p class="text-neutral-50 text-sm/4">& Orders</p>
         </div>
-        <span class="material-symbols-outlined text-neutral-50 text-3xl! pr-2"
-          >shopping_cart</span
-        >
+        <div class="cursor-pointer">
+          <a
+            href="checkout.html"
+            class="relative flex items-center text-neutral-50 hover:text-yellow-500"
+          >
+            <span class="material-symbols-outlined text-3xl! pr-2"
+              >shopping_cart</span
+            >
+
+            <span
+              id="cart-count"
+              class="absolute top-0 right-0 bg-yellow-500 text-neutral-900 rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold"
+            >
+              0
+            </span>
+          </a>
+        </div>
       </div>
     </header>
     <div id="products-page" class="pl-5 pr-5"></div>

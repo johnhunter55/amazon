@@ -1,5 +1,5 @@
 import products from "../data/products.js";
-import { addToCart } from "../utils/storage.js";
+import { addToCart, updateCartCount } from "../utils/storage.js";
 
 function renderProductsPage() {
   const productPageContainer = document.getElementById("products-page");
@@ -30,11 +30,22 @@ function renderProductsPage() {
 
 renderProductsPage();
 
-document.addEventListener("click", function (event) {
+// 1. Define the function separately (The Logic)
+function handleGlobalClick(event) {
+  // The "If" (Filter)
   if (event.target.classList.contains("itemBtn")) {
-    const productId = event.target.closest(".my-item").dataset.productId;
+    // Find the parent card to get the ID
+    const card = event.target.closest(".my-item");
+    const productId = card.dataset.productId;
+
     addToCart(productId);
   }
-});
+}
+
+// 2. Attach it to the document (The Watcher)
+document.addEventListener("click", handleGlobalClick);
+
+// Run this once when the page loads to restore the number from LocalStorage
+updateCartCount();
 
 export default renderProductsPage;
