@@ -5,7 +5,7 @@ import {
   removeOneFromCart,
   addToCart,
 } from "../utils/storage.js";
-
+// Let user up or down the item
 document.addEventListener("click", (e) => {
   const productId = e.target.dataset.productId;
   if (!productId) return;
@@ -35,7 +35,6 @@ function renderCheckout() {
   }
 
   // 2. Render Each Item
-  // We use .map() to turn objects into HTML strings
   container.innerHTML = cart
     .map(
       (item) => `
