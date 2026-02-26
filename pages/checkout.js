@@ -1,4 +1,26 @@
-import { getCart, removeFromCart, updateCartCount } from "../utils/storage.js"; // Import your helper
+import {
+  getCart,
+  removeFromCart,
+  updateCartCount,
+  removeOneFromCart,
+  addToCart,
+} from "../utils/storage.js";
+
+document.addEventListener("click", (e) => {
+  const productId = e.target.dataset.productId;
+  if (!productId) return;
+
+  if (e.target.classList.contains("delete-btn")) {
+    removeFromCart(productId);
+    renderCheckout();
+  } else if (e.target.classList.contains("increase-btn")) {
+    addToCart(productId);
+    renderCheckout();
+  } else if (e.target.classList.contains("decrease-btn")) {
+    removeOneFromCart(productId);
+    renderCheckout();
+  }
+});
 
 function renderCheckout() {
   const cart = getCart(); // Get the array from local storage
@@ -26,9 +48,11 @@ function renderCheckout() {
                 
                 <div class="mt-2 flex items-center gap-2">
                     <label>Qty:</label>
-                    <input type="number" min="1" value="${item.quantity || 1}" 
-                           class="border rounded w-16 p-1 pl-2"
-                           data-product-id="${item.id}">
+                    <div class="flex items-center border rounded">
+                        <button class="px-3 py-1 hover:bg-gray-100 decrease-btn cursor-pointer" data-product-id="${item.id}">-</button>
+                        <span class="px-3">${item.quantity || 1}</span>
+                        <button class="px-3 py-1 hover:bg-gray-100 increase-btn cursor-pointer" data-product-id="${item.id}">+</button>
+                    </div>
                     
                     <button class="text-red-500 text-sm cursor-pointer hover:underline ml-4 delete-btn" 
                             data-product-id="${item.id}">
@@ -40,14 +64,6 @@ function renderCheckout() {
     `,
     )
     .join("");
-
-  document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("delete-btn")) {
-      const productId = e.target.dataset.productId;
-      removeFromCart(productId);
-      renderCheckout();
-    }
-  });
 
   const total = cart.reduce((sum, item) => {
     const priceNumber = parseFloat(item.price.replace("$", ""));
@@ -62,5 +78,4 @@ function renderCheckout() {
     `;
 }
 updateCartCount();
-// Run on page load
 renderCheckout();
